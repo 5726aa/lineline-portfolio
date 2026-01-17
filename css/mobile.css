@@ -1,0 +1,215 @@
+@media screen and (max-width: 1098px) {
+  header {
+    padding: 20px;
+  }
+  .hero-text .main-title {
+    font-size: 40px;
+  }
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .detail-container {
+    padding-top: 100px !important;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  .info-sticky {
+    position: static;
+  }
+  .product-name {
+    font-size: 24px;
+  }
+}
+@media screen and (max-width: 798px) {
+  .nav {
+    display: none;
+  }
+  .hero-text .main-title {
+    font-size: 28px;
+  }
+  .grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .logo {
+    font-size: 20px;
+  }
+  .top-margin {
+    padding-top: 120px !important;
+  }
+  .container {
+    padding: 40px 20px;
+  }
+  .m-menu-btn {
+    display: block !important;
+    width: 28px;
+    height: 18px;
+    position: relative;
+    cursor: pointer;
+    z-index: 9999;
+  }
+  .m-menu-btn span {
+    display: block;
+    height: 1px;
+    background: #000;
+    position: absolute;
+    right: 0;
+    transition: all 0.4s ease;
+  }
+  .line-long {
+    width: 100%;
+    top: 0;
+  }
+  .line-short {
+    width: 60%;
+    bottom: 0;
+  }
+  .m-menu-btn.active .line-long {
+    transform: rotate(45deg);
+    top: 8px;
+  }
+  .m-menu-btn.active .line-short {
+    width: 100%;
+    transform: rotate(-45deg);
+    bottom: 8px;
+  }
+  .m-nav {
+    display: flex !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #fff;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease-in-out;
+    z-index: 9000;
+  }
+  .m-nav.active {
+    opacity: 1;
+    visibility: visible;
+    display: flex !important;
+  }
+  .m-nav ul {
+    text-align: center;
+    padding: 0;
+  }
+  .m-nav ul li {
+    list-style: none;
+    margin: 35px 0;
+    overflow: hidden;
+  }
+  .m-nav ul li a {
+    font-size: 24px;
+    font-weight: 200;
+    letter-spacing: 3px;
+    transform: translateY(30px);
+    display: block;
+    transition: all 0.3s ease;
+    opacity: 0;
+    color: #333;
+  }
+  .m-nav ul li a.active {
+    font-weight: 600;
+    color: #000;
+    letter-spacing: 2px;
+  }
+  .m-nav ul li a:active {
+    font-weight: 600;
+    color: #000;
+    transition: none;
+  }
+  .m-nav.active ul li a {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  .m-nav ul li a:active {
+    font-weight: 400;
+    letter-spacing: 5px;
+    color: #888;
+  }
+  .footer {
+    padding: 50px 0;
+    margin-top: 80px;
+  }
+  .footer .info-box h3 {
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+  .footer .info-box p {
+    font-size: 11px;
+    line-height: 1.8;
+    word-break: keep-all;
+  }
+  .btn-more:active {
+    opacity: 0.6;
+  }
+  .btn-more:active::after {
+    transform: scaleX(1);
+    background-color: #888;
+  }
+  .m-break {
+    display: block;
+    content: "";
+    margin-top: 5px;
+  }
+  .top-btn {
+    right: 20px;
+    bottom: 20px;
+  }
+  .hero-text .sub-title {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+  .hero-text .main-title {
+    font-size: 28px;
+    margin-bottom: 20px;
+    line-height: 1.4;
+  }
+  .btn-more {
+    font-size: 13px !important;
+    padding-bottom: 3px;
+  }
+  .full-img {
+    height: 60vh;
+    margin-bottom: 40px;
+  }
+  .full-img:active img {
+    opacity: 0.8;
+    transform: scale(0.98);
+    transition: 0.2s;
+  }
+  .m-nav ul li a.active {
+    font-weight: 700 !important;
+    color: #000 !important;
+    letter-spacing: 2px;
+  }
+  section.container.top-margin .about-hero {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.8)), url('../img/about.jpg');
+    padding-top: 80px;
+    padding-bottom: 80px;
+    background-attachment: scroll;
+  }
+  .line-animation-container p {
+    font-size: 18px !important;
+    word-break: keep-all;
+  }
+  .hero .btn-more {
+    padding: 14px 35px;
+    font-size: 14px;
+    animation: mobile-blink 2.5s infinite ease-in-out;
+  }
+}
+@keyframes mobile-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}

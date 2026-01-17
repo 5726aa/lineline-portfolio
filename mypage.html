@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Page | Line Line</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/mobile.css">
+  <style>
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 25px 0;
+      border-bottom: 1px solid #eee;
+    }
+    .cart-info h4 {
+      font-size: 15px;
+      font-weight: 500;
+      margin-bottom: 5px;
+    }
+    .cart-info p {
+      font-size: 13px;
+      color: #888;
+    }
+    .cart-empty {
+      text-align: center;
+      padding: 100px 0;
+      color: #ccc;
+      font-size: 14px;
+    }
+    #checkout-form {
+      display: none;
+      margin-top: 50px;
+      padding-top: 50px;
+      border-top: 2px solid #000;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      margin-bottom: 8px;
+      color: #666;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 15px;
+      border: 1px solid #eee;
+      font-size: 14px;
+      outline: none;
+    }
+    .checkout-total {
+      text-align: right;
+      margin: 30px 0;
+      font-size: 18px;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <header id="header" class="scrolled">
+    <h1 class="logo"><a href="index.html">LINE LINE</a></h1>
+    <nav class="nav pc-nav">
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="about.html">ABOUT</a></li>
+        <li><a href="shop.html">SHOP</a></li>
+        <li><a href="collection.html">COLLECTION</a></li>
+        <li><a href="contact.html">CONTACT</a></li>
+        <li><a href="mypage.html">MY PAGE</a></li>
+      </ul>
+    </nav>
+    <div class="m-menu-btn" id="m-menu-btn">
+      <span class="line-long"></span>
+      <span class="line-short"></span>
+    </div>
+    <nav class="m-nav" id="m-nav">
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="about.html">ABOUT</a></li>
+        <li><a href="shop.html">SHOP</a></li>
+        <li><a href="collection.html">COLLECTION</a></li>
+        <li><a href="contact.html">CONTACT</a></li>
+        <li><a href="mypage.html">MY PAGE</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main class="container top-margin" style="max-width: 600px;">
+    <h3 class="section-title fade-in">My Cart</h3>
+    <div id="cart-container" class="fade-in"></div>
+    <div id="cart-footer" class="fade-in"
+      style="margin-top: 30px; display: flex; justify-content: space-between; align-items: center;">
+      <button onclick="clearCart()"
+        style="cursor:pointer; border:none; background:none; color:#888; text-decoration: underline;">Empty
+        Cart</button>
+      <button id="show-checkout" class="btn-black" style="width: 200px;">CHECK OUT</button>
+    </div>
+    <section id="checkout-form" class="fade-in">
+      <h3 style="margin-bottom: 30px;">Shipping Information</h3>
+      <div class="form-group">
+        <label>NAME</label>
+        <input type="text" id="order-name" placeholder="수령인 성함">
+      </div>
+      <div class="form-group">
+        <label>ADDRESS</label>
+        <input type="text" id="order-address" placeholder="배송지 주소">
+      </div>
+      <div class="form-group">
+        <label>PHONE</label>
+        <input type="text" id="order-phone" placeholder="010-0000-0000">
+      </div>
+      <div class="checkout-total">
+        TOTAL: <span id="total-price">0</span>
+      </div>
+      <button onclick="completeOrder()" class="btn-black">PLACE ORDER (결제하기)</button>
+    </section>
+    <div id="order-complete" class="fade-in" style="display:none; text-align: center; padding: 100px 0;">
+      <h3 style="font-size: 24px; margin-bottom: 10px;">THANK YOU!</h3>
+      <p style="color: #888;">주문이 정상적으로 접수되었습니다.</p>
+      <button onclick="location.href='index.html'" class="btn-white"
+        style="margin-top: 30px; width: 200px;">HOME</button>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="container" style="text-align: center; padding-top: 50px;">
+      <div class="info-box">
+        <h3 style="letter-spacing: 2px; margin-bottom: 15px; color: #333;">LINE LINE</h3>
+        <p style="margin-bottom: 5px;">주식회사 라인라인 | 대표: 정세의 | 충청북도 제천시 라인로 123</p>
+        <p>CS: 1588-0000 (10:00 - 17:00) | <a href="mailto:info@lineline.com">info@lineline.com</a></p>
+        <div class="sns-links" style="margin-top: 12px; font-size: 13px;">
+          <a href="https://www.instagram.com/인스타그램아이디" target="_blank">INSTAGRAM</a> /
+          <a href="https://blog.naver.com/네이버아이디" target="_blank">NAVER</a>
+        </div>
+        <p class="copy" style="margin-top: 8px; font-size: 10px; color: #ccc;">© 2026 Line Line. All rights reserved.
+        </p>
+        <div class="portfolio-notice" style="margin-top: 30px; padding-top: 20px;">
+          <p style="font-size: 10px; color: #999; line-height: 1.6;">
+            본 웹사이트는 '라인라인'의 브랜딩 및 UI/UX 설계를 위해 제작된 가상의 포트폴리오입니다.<br>
+            실제 운영되는 사이트가 아니며, 모든 디자인 요소는 제작자에 의해 기획 및 재구성되었습니다.<br>
+            무단 복제 및 2차 수정을 금합니다.
+          </p>
+          <p class="copy" style="margin-top: 4px; font-size: 10px; color: #686868;">
+            Designed by Yimirinae
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <button id="back-to-top" class="top-btn">
+    <span class="line-vertical"></span>
+    <span class="btn-text">TOP</span>
+  </button>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      renderCart();
+      const savedCart = JSON.parse(localStorage.getItem('myCart')) || [];
+      const checkoutForm = document.getElementById('checkout-form');
+      const checkoutBtn = document.getElementById('show-checkout');
+      if (savedCart.length > 0) {
+        if (checkoutForm) checkoutForm.style.display = 'block';
+        if (checkoutBtn) checkoutBtn.style.display = 'none';
+      }
+      const fadeElements = document.querySelectorAll('.fade-in');
+      fadeElements.forEach((el, index) => {
+        setTimeout(() => {
+          el.classList.add('active');
+        }, index * 150);
+      });
+      if (checkoutBtn) {
+        checkoutBtn.addEventListener('click', function () {
+          if (checkoutForm) {
+            checkoutForm.style.display = 'block';
+            setTimeout(() => checkoutForm.classList.add('active'), 10);
+          }
+          this.style.display = 'none';
+          window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+        });
+      }
+    });
+    function renderCart() {
+      const container = document.getElementById('cart-container');
+      const footer = document.getElementById('cart-footer');
+      const savedCart = JSON.parse(localStorage.getItem('myCart')) || [];
+      if (savedCart.length === 0) {
+        container.innerHTML = `<div class="cart-empty"><p>장바구니가 비어있습니다.</p></div>`;
+        if (footer) footer.style.display = 'none';
+      } else {
+        let html = '';
+        savedCart.forEach((item, index) => {
+          html += `
+                    <div class="cart-item">
+                        <div class="cart-info"><h4>${item.name}</h4><p>${item.price}</p></div>
+                        <button onclick="removeItem(${index})" style="cursor:pointer; border:none; background:none; color:#ccc;">REMOVE</button>
+                    </div>`;
+        });
+        container.innerHTML = html;
+        const totalPriceEl = document.getElementById('total-price');
+        if (totalPriceEl && savedCart[0]) totalPriceEl.innerText = savedCart[0].price;
+      }
+    }
+    function completeOrder() {
+      const name = document.getElementById('order-name').value;
+      const addr = document.getElementById('order-address').value;
+      if (!name || !addr) {
+        alert('배송 정보를 입력해주세요.');
+        return;
+      }
+      localStorage.removeItem('myCart');
+      document.getElementById('cart-container').style.display = 'none';
+      document.getElementById('checkout-form').style.display = 'none';
+      document.querySelector('.section-title').style.display = 'none';
+      document.getElementById('order-complete').style.display = 'block';
+    }
+    function removeItem(index) {
+      let cart = JSON.parse(localStorage.getItem('myCart'));
+      cart.splice(index, 1);
+      localStorage.setItem('myCart', JSON.stringify(cart));
+      location.reload();
+    }
+    function clearCart() {
+      if (confirm('장바구니를 비우시겠습니까?')) {
+        localStorage.removeItem('myCart');
+        location.reload();
+      }
+    }
+  </script>
+  <script src="js/main.js"></script>
+</body>
+</html>
